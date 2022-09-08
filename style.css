@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
+*{
+    font-family: 'News Cycle', sans-serif;
+}
+
+@keyframes animatedBackground {
+    from {
+      background-size: 100%;
+    }
+    to {
+      background-size: 120%;
+    }
+  }
+
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y:hidden;
+    overflow-x: auto;
+    transition: 1s;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+section{
+    width: 100%;
+    height: 100%;
+    background-image: url('https://s.yimg.com/os/creatr-uploaded-images/2022-09/fd0ef5e0-2db5-11ed-b4fa-4b651cab6214');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100;
+    position: relative; 
+    animation-name: animatedBackground;
+    animation-duration: 12s;
+}
+
+section div{
+    background: rgba(255,255,255,0.9);
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 80px);
+    padding: 10px 40px;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 2px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
