@@ -7,6 +7,8 @@ let newsSeparate = [];
 let news = [];
 let count = 0;
 
+let flag = true;
+
 //Returns the smallest length of child elements
 function getMinimumLength(arr){
     let minLen = 0;
@@ -71,38 +73,23 @@ init();
 
 //Create a section by notice object
 function createSection(notice){
-    let img = notice.urlToImage;
-    let title = notice.title;
-    let fonte = `Fonte: ${notice.source.name}, ${notice.author}`;
-
-    let section = document.createElement('section');
-    let div = document.createElement('div');
-    let h2 = document.createElement('h2');
-    let p = document.createElement('p');
-
-    h2.innerText = title;
-    p.innerText = fonte;
-    section.id=`section_${count}`;
-    section.style.backgroundImage = `url('${img}')`;
+    document.getElementById("content").style.backgroundImage = `url('${notice.urlToImage}')`;
+    if(flag){
+        document.getElementById("content").style.animationName = 'animatedBackground2';
+        flag = !flag
+    }else{
+        document.getElementById("content").style.animationName = 'animatedBackground';
+        flag = !flag
+    }
+    document.getElementById("title").innerHTML = notice.title;
+    document.getElementById("descript").innerHTML = notice.description;
 
     count++;
-
-    div.appendChild(h2);
-    div.appendChild(p);
-    section.appendChild(div);
-
-    document.getElementById('content').appendChild(section);
-}
-
-function scrollNextNews(){
-    $("html, body").animate({ scrollLeft: document.body.offsetWidth * count }, 750);
-    //window.scrollTo(document.body.offsetWidth * count , 0); 
 }
 
 //Create inteval for news
 function setCreateInterval(){
     setInterval(()=>{
         createSection(news[count]);
-        scrollNextNews();
     }, 1000 * interval)
 }

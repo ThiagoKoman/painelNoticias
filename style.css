@@ -1,14 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 *{
-    font-family: 'News Cycle', sans-serif;
+    /* font-family: 'News Cycle', sans-serif; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
 }
 
 @keyframes animatedBackground {
     from {
-      background-size: 100%;
+      background-size: auto 100%;
     }
     to {
-      background-size: 120%;
+      background-size: auto 120%;
+    }
+  }
+
+@keyframes animatedBackground2 {
+    from {
+      background-size: auto 120%;
+    }
+    to {
+      background-size: auto 100%;
     }
   }
 
@@ -24,30 +37,10 @@ body{
 main{
     width: 100%;
     height: 100%;
-    background: black;
+    background: white;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-}
-
-section{
-    width: 100%;
-    height: 100%;
-    background-image: url('https://s.yimg.com/os/creatr-uploaded-images/2022-09/fd0ef5e0-2db5-11ed-b4fa-4b651cab6214');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100;
-    position: relative; 
-    animation-name: animatedBackground;
-    animation-duration: 12s;
-}
-
-section div{
-    background: rgba(255,255,255,0.9);
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 80px);
-    padding: 10px 40px;
 }
 
 body::-webkit-scrollbar {
@@ -68,4 +61,56 @@ body::-webkit-scrollbar-thumb {
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
     background: #555; 
+}
+
+.bg{
+    background-image: url('./img/bg2.png');
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+}
+
+#content{
+    background: white;
+    position: fixed;
+    height: 74vh;
+    top: 9vh;
+    width: 54vw;
+    left: 44vw;
+    z-index: 4;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    animation-name: animatedBackground;
+    animation-duration: 12s;
+}
+
+#text{
+    background: none;
+    position: fixed;
+    height: 57vh;
+    top: 17vh;
+    width: 42vw;
+    left: 3vw;
+    z-index: 6;
+    padding: 0 40px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+p, h3{
+    text-transform: uppercase; 
+}
+
+h3{
+    font-size: 32px;
+    font-weight: 800;
+    text-align: left;
+}
+
+p{
+    font-size: 24px;
+    line-height: 40px;
+    text-align: left;
 }
